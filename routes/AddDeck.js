@@ -26,17 +26,26 @@ class AddDeckScreen extends React.Component {
 
     deck_name = deck_name.trim();
 
+    const new_deck = {
+      title: deck_name,
+      questions: []
+    };
+
     const deck = {
-      [deck_name]: {
-        title: deck_name,
-        questions: []
-      }
+      [deck_name]: new_deck
     };
 
     Keyboard.dismiss();
     dispatch(addDeck(deck));
     API.addDeck(deck);
     navigation.dispatch(NavigationActions.back());
+    navigation.dispatch(NavigationActions.reset({
+      index: 1,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({ routeName: 'DeckInfo', params: { deck: new_deck } })
+      ]
+    }));
   }
 
   textChange = (deck_name) => {

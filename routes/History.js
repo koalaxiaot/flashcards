@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 import { today } from '../utils/helpers';
-import { fetchHistory } from '../utils/history';
+import { fetchHistory, initHistory } from '../utils/history';
 
 export default class AgendaScreen extends Component {
 
@@ -15,7 +15,7 @@ export default class AgendaScreen extends Component {
 
   componentDidMount() {
     fetchHistory().then(history => {
-      this.setState({ history });
+      this.setState({ history: { ...initHistory(), ...history } });
     })
   }
 
@@ -23,8 +23,7 @@ export default class AgendaScreen extends Component {
     return (
       <Agenda
         items={this.state.history}
-        loadItemsForMonth={this.loadItems}
-        selected={today()}
+        selected={today(-2)}
         maxDate={today()}
         minDate={'2018-01-13'}
         renderItem={this.renderItem}
@@ -32,14 +31,6 @@ export default class AgendaScreen extends Component {
         rowHasChanged={this.rowHasChanged}
       />
     );
-  }
-
-  loadItems = day => {
-    const { history } = this.state;
-    if (!history[day.dateString]) {
-      history[day.dateString] = [];
-    }
-    this.setState({ history });
   }
 
   renderItem = item => {

@@ -10,8 +10,9 @@ export const obj2arr = obj => Object.keys(obj).map(k => ({
   ...obj[k]
 }));
 
-export const today = () => {
+export const today = (offset = 0) => {
   const d = new Date();
+  d.setDate(d.getDate() + offset);
   return d.toISOString().split('T')[0];
 };
 
@@ -57,7 +58,7 @@ export const setLocalNotification = () => {
 };
 
 /** custom notify */
-export const customNotification = (afterMinutes) => {
+export const customNotification = (afterMinutes = 1) => {
   AsyncStorage.getItem(NOTIFY_CUSTOM_KEY).then(JSON.parse).then(data => {
     if (data === null) {
       Permissions.askAsync(Permissions.NOTIFICATIONS)

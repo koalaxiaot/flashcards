@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default Deck = ({ deck, navigation }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('DeckInfo', { deck })}>
+    <TouchableOpacity onPress={() => navigation.navigate('DeckInfo', { deck })} style={{ margin: 25 }}>
       <View style={styles.item}>
         <Text style={styles.title}>{deck.title}</Text>
         <Text style={styles.num}>{deck.questions.length} cards</Text>
@@ -15,10 +15,6 @@ export default Deck = ({ deck, navigation }) => {
 const styles = StyleSheet.create({
   item: {
     padding: 10,
-    marginTop: 20,
-    marginBottom: 20,
-    marginLeft: 20,
-    marginRight: 20,
     height: 150,
     borderStyle: "solid",
     borderWidth: 2,

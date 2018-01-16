@@ -15,7 +15,7 @@ const DeckInfoScreen = ({ deck, navigation }) => {
       </View>
       {deck.questions.length > 0 &&
         <View style={styles.button}>
-          <Button title='start quiz' onPress={() => navigation.navigate('Quiz', { deck })} />
+          <Button title='start quiz' color='#e74c3c' onPress={() => navigation.navigate('Quiz', { deck })} />
         </View>
       }
     </View>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 35,
-    margin: 40,
+    margin: 30,
   },
   columnCnt: {
     flexDirection: 'row',

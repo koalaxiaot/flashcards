@@ -27,6 +27,18 @@ const initData = {
   ]
 };
 
+export const initHistory = () => {
+  const start = new Date('01/13/2018');
+  const end = (new Date()).setDate((new Date()).getDate() + 1);
+  let tmp = start;
+  let result = {};
+  while (tmp <= end) {
+    result[tmp.toISOString().split('T')[0]] = [];
+    tmp.setDate(tmp.getDate() + 1);
+  }
+  return result;
+};
+
 export const addHistory = (date, item) => fetchHistory().then(history => {
   let new_day_arr = history[date] || [];
   new_day_arr = new_day_arr.filter(i => i.title !== item.title);

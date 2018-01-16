@@ -6,9 +6,9 @@
     "description": "test your brain",
     "slug": "udacicards",
     "version": "1.0",
-    "icon": "http://www.student-scholarships.com/images/made/img/featured/nav_basketball_45_45.png",
+    "icon": "https://img.bigtests.club/static/icons/amigosteconehcem120317.png",
     "notification": {
-      "icon": "http://www.student-scholarships.com/images/made/img/featured/nav_basketball_45_45.png"
+      "icon": "https://img.bigtests.club/static/icons/amigosteconehcem120317.png"
     },
     "ios": {
       "bundleIdentifier": "org.udacifitness.exp"

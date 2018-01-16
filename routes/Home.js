@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   calendar: {
-    fontSize: 30,
+    fontSize: 35,
     color: '#245a91'
   }
 });
