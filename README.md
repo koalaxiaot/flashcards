@@ -22,7 +22,7 @@ $ yarn install
 $ yarn start
 ```
 
-I also build a apk in expo.io [download](https://exp-shell-app-assets.s3-us-west-1.amazonaws.com/android%2F%40lyra%2Fudacicards-b178ca55-fa85-11e7-8ea1-0a580a782406-signed.apk)
+I also build a `.apk` file. [download](https://exp-shell-app-assets.s3-us-west-1.amazonaws.com/android%2F%40lyra%2Fudacicards-b178ca55-fa85-11e7-8ea1-0a580a782406-signed.apk)
 ```
 https://exp-shell-app-assets.s3-us-west-1.amazonaws.com/android%2F%40lyra%2Fudacicards-b178ca55-fa85-11e7-8ea1-0a580a782406-signed.apk
 ```
