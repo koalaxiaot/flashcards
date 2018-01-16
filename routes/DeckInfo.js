@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, FlatList, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button, Text } from 'react-native';
 
 const DeckInfoScreen = ({ deck, navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{deck.title}</Text>
       <View style={styles.columnCnt}>
-        <Text style={styles.num}>{deck.questions.length}</Text>
+        <Text style={{ fontSize: 30 }}>{deck.questions.length}</Text>
         <Text style={styles.cards}>cards</Text>
       </View>
       <View style={styles.button}>
@@ -34,9 +34,6 @@ const styles = StyleSheet.create({
   columnCnt: {
     flexDirection: 'row',
     margin: 20
-  },
-  num: {
-    fontSize: 30,
   },
   cards: {
     color: '#888',

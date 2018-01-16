@@ -1,5 +1,5 @@
 import React from 'react';
-import { Keyboard, FlatList, View, Button, Text, TextInput, StyleSheet, Alert } from 'react-native';
+import { Keyboard, View, Button, Text, TextInput, StyleSheet, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { addDeck } from '../actions/index';
 import { NavigationActions } from 'react-navigation';
@@ -40,9 +40,7 @@ class AddDeckScreen extends React.Component {
   }
 
   textChange = (deck_name) => {
-    this.setState({
-      deck_name
-    })
+    this.setState({ deck_name })
   }
 
   render() {

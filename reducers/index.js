@@ -1,5 +1,4 @@
 import { ADD_CARD, ADD_DECK, RECEIVE_DECKS } from '../actions';
-import { fetchAll } from '../utils/api';
 
 const decks = (state = {}, action) => {
 

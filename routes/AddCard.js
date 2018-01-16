@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Keyboard, View, Button, Text, TextInput, KeyboardAvoidingView, Alert } from 'react-native';
+import { StyleSheet, Keyboard, View, Button, Text, TextInput, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import { addCard } from '../actions/index';
 import { NavigationActions } from 'react-navigation';
@@ -43,15 +43,11 @@ class AddCardScreen extends React.Component {
   }
 
   onQchange = (question) => {
-    this.setState({
-      question
-    });
+    this.setState({ question });
   }
 
   onAchange = (answer) => {
-    this.setState({
-      answer
-    });
+    this.setState({ answer });
   }
 
   render() {

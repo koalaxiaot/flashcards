@@ -1,7 +1,8 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Alert } from 'react-native';
 import { Permissions, Notifications } from 'expo';
 
-const NOTIFY_KEY = 'udaci:notifications'
+const NOTIFY_KEY = 'udaci:notifications';
+const NOTIFY_CUSTOM_KEY = 'udaci:notifications_custom';
 
 // FlatList use. objs => array with key
 export const obj2arr = obj => Object.keys(obj).map(k => ({
@@ -36,9 +37,7 @@ export const setLocalNotification = () => {
         Permissions.askAsync(Permissions.NOTIFICATIONS)
           .then(({ status }) => {
             if (status === 'granted') {
-
               Notifications.cancelAllScheduledNotificationsAsync();
-
               let tommorrow = new Date();
               tommorrow.setDate(tommorrow.getDate() + 1)
               tommorrow.setHours(20)
@@ -55,4 +54,35 @@ export const setLocalNotification = () => {
           })
       }
     });
+};
+
+/** custom notify */
+export const customNotification = (afterMinutes) => {
+  AsyncStorage.getItem(NOTIFY_CUSTOM_KEY).then(JSON.parse).then(data => {
+    if (data === null) {
+      Permissions.askAsync(Permissions.NOTIFICATIONS)
+        .then(({ status }) => {
+          if (status === 'granted') {
+            Notifications.cancelAllScheduledNotificationsAsync();
+            let day = new Date();
+            day.setMinutes(day.getMinutes() + afterMinutes);
+            Notifications.scheduleLocalNotificationAsync(
+              createNotification(),
+              {
+                time: day,
+                repeat: 'minute'
+              }
+            ).then(id => {
+              AsyncStorage.setItem(NOTIFY_CUSTOM_KEY, JSON.stringify(id));
+              Alert.alert('OK', `custom notification(${id}) at ${day.toLocaleString()}`);
+            });
+          }
+        })
+    } else {
+      AsyncStorage.getItem(NOTIFY_CUSTOM_KEY).then(JSON.parse).then(id => {
+        id != null && AsyncStorage.removeItem(NOTIFY_CUSTOM_KEY).then(Notifications.cancelScheduledNotificationAsync(id));
+        Alert.alert('OK', `custom notification(${id}) cancelled.`);
+      });
+    }
+  });
 };

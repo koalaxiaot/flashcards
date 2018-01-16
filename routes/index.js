@@ -1,5 +1,3 @@
-import React from 'react';
-import { TouchableNativeFeedback, Alert, View, Button, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import HomeScreen from './Home';
 import DeckInfoScreen from './DeckInfo';

@@ -1,5 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, TouchableNativeFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+
+export default Deck = ({ deck, navigation }) => {
+  return (
+    <TouchableOpacity onPress={() => navigation.navigate('DeckInfo', { deck })}>
+      <View style={styles.item}>
+        <Text style={styles.title}>{deck.title}</Text>
+        <Text style={styles.num}>{deck.questions.length} cards</Text>
+      </View>
+    </TouchableOpacity>
+  )
+};
 
 const styles = StyleSheet.create({
   item: {
@@ -24,16 +35,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#245a91'
   }
-
 });
-
-export default Deck = ({ deck, navigation }) => {
-  return (
-    <TouchableNativeFeedback onPress={() => navigation.navigate('DeckInfo', { deck })}>
-      <View style={styles.item}>
-        <Text style={styles.title}>{deck.title}</Text>
-        <Text style={styles.num}>{deck.questions.length} cards</Text>
-      </View>
-    </TouchableNativeFeedback>
-  )
-};

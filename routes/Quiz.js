@@ -1,8 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, Animated, StyleSheet, View, Button, Text, TouchableHighlight } from 'react-native';
+import { TouchableOpacity, StyleSheet, View, Button, Text } from 'react-native';
 import { today, setLocalNotification, clearLocalNotification } from '../utils/helpers';
 import { NavigationActions } from 'react-navigation';
-import { fetchHistory, addHistory } from '../utils/history';
+import { addHistory } from '../utils/history';
 
 export default class QuizScreen extends React.Component {
 
@@ -71,7 +71,7 @@ export default class QuizScreen extends React.Component {
     return (
       <View style={styles.container}>
 
-        <View style={styles.nums}>
+        <View style={{ margin: 20 }}>
           <Text style={{ fontSize: 20 }}>{currentQuestion + 1} / {deck.questions.length}</Text>
         </View>
 
@@ -114,13 +114,9 @@ export default class QuizScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     alignItems: 'center'
-  },
-  nums: {
-    margin: 20
   },
   card: {
     justifyContent: 'center',

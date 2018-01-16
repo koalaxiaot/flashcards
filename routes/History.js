@@ -53,7 +53,7 @@ export default class AgendaScreen extends Component {
     );
   }
 
-  renderEmptyDate = () => <View style={styles.emptyDate}><Text>This is empty date!</Text></View>
+  renderEmptyDate = () => <View style={styles.emptyDate}><Text>No quiz score today!</Text></View>
   timeToString = time => (new Date(time)).toISOString().split('T')[0];
   rowHasChanged = (r1, r2) => r1.title !== r2.title;
 

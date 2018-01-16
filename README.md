@@ -1,7 +1,15 @@
 ### NOTICE
 
 `Android` only
->> As i have no Macbook. My development envrionment is Ubuntu ^_^
+> As i have no Macbook. My development envrionment is Ubuntu ^_^
+
+##### Highlight
+
+1. In order to facilitate `Notification` test, I add a custom notification (`toggle notification (1 minute)`) which repeat every 1 minute.
+> You can click the button at `Home` route. It will add(cancel) the custom notification.
+
+2. History route. You can get your quiz score in history list.
+> react-native-calendars
 
 ### start
 
@@ -20,7 +28,7 @@ download the `.apk` i have build by `$ exp build:android`
 
 ### data schema
 
-There are 3 sets of data storaged in `AsyncStorage`.
+There are 4 sets of data storaged in `AsyncStorage`.
 
 initial data:
 
@@ -57,7 +65,13 @@ initial data:
 'true'
 ```
 
-3. `udaci:history` in `utils/history.js`
+3. `udaci:notification_custom` in `utils/helpers.js`
+
+```
+unique notification id
+```
+
+4. `udaci:history` in `utils/history.js`
 
 ```
   '2018-01-13': [
